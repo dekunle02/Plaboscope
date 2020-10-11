@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/nav_dashboard">
+
+
+    <fragment
+        android:id="@+id/nav_dashboard"
+        android:name="com.adeleke.samad.plaboscope.ui.dashboard.DashboardFragment"
+        android:label="@string/dashboard"
+        tools:layout="@layout/fragment_dashboard" />
+
+    <fragment
+        android:id="@+id/nav_specialty"
+        android:name="com.adeleke.samad.plaboscope.ui.specialty.SpecialtyFragment"
+        android:label="@string/specialty"
+        tools:layout="@layout/fragment_specialty" />
+
+    <fragment
+        android:id="@+id/nav_bookmark"
+        android:name="com.adeleke.samad.plaboscope.ui.bookmark.BookmarkFragment"
+        android:label="@string/bookmarked_questions"
+        tools:layout="@layout/fragment_bookmark"/>
+
+    <fragment
+        android:id="@+id/nav_note"
+        android:name="com.adeleke.samad.plaboscope.ui.note.list.NoteListFragment"
+        android:label="@string/my_notes"
+        tools:layout="@layout/fragment_note_list"/>
+
+</navigation>

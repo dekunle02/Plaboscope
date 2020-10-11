@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="entries_pref">
+        <item>Disable</item>
+        <item>Weekly</item>
+        <item>Every other day</item>
+        <item>Daily</item>
+        <item>Twice Daily</item>
+    </string-array>
+
+    <string-array name="entry_values">
+        <item>disabled</item>
+        <item>weekly</item>
+        <item>everyOtherDay</item>
+        <item>daily</item>
+        <item>twiceDaily</item>
+    </string-array>
+</resources>

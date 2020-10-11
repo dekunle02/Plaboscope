@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.adeleke.samad.plaboscope.ui.note.edit.EditNoteViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/birthdayDetailConstraint"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true"
+            android:theme="@style/Plaboscope.AppBarOverlay">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/editNoteToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:popupTheme="@style/Plaboscope.PopupOverlay" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            android:paddingBottom="32dp"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:orientation="vertical"
+                tools:context=".ui.note.edit.EditNoteActivity">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    >
+                    <LinearLayout
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/TagStyle"
+                            android:layout_gravity="center"
+                            android:layout_margin="4dp"
+                            android:src="@drawable/ic_tag" />
+                        <com.jaredrummler.materialspinner.MaterialSpinner
+                            android:id="@+id/noteTagEdit"
+                            tools:text="Cardiology"
+                            android:text="@={viewmodel.tag}"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            />
+                    </LinearLayout>
+
+                    <EditText
+                        android:id="@+id/noteTitleEdit"
+                        android:layout_marginStart="8dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:hint="@string/note_title_hint"
+                        android:text="@={viewmodel.title}"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                        tools:text="Sample Title" />
+
+                </LinearLayout>
+
+
+                <EditText
+                    android:id="@+id/noteBodyEdit"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+                    android:background="@null"
+                    android:hint="@string/note_body_hint"
+                    android:text="@={viewmodel.body}"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+                    tools:text="@string/sample_question_body" />
+
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

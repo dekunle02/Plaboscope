@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.adeleke.samad.plaboscope.ui.dashboard.DashboardViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/dashboardConstraint"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            android:nestedScrollingEnabled="true"
+            tools:context=".dashboard.DashboardActivity">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/progressCardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:orientation="vertical">
+
+                    <me.itangqi.waveloadingview.WaveLoadingView
+                        android:id="@+id/waveLoadingView"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        app:wlv_borderColor="@color/colorAccent"
+                        app:wlv_borderWidth="3dp"
+                        tools:wlv_progressValue="50"
+                        app:wlv_round_rectangle="true"
+                        app:wlv_shapeType="rectangle"
+                        tools:wlv_titleCenter="Overall Progress:40%"
+                        app:wlv_titleCenterSize="22sp"
+                        app:wlv_titleCenterStrokeWidth="3dp"
+                        app:wlv_triangle_direction="north"
+                        app:wlv_waveAmplitude="50"
+                        app:wlv_waveColor="@color/colorAccent" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/scoreCardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/progressCardView">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <FrameLayout
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:layout_margin="8dp">
+
+                        <com.timqi.sectorprogressview.ColorfulRingProgressView
+                            android:id="@+id/ringProgressView"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            app:bgColor="#e5e5e5"
+                            app:fgColorEnd="@color/colorPrimary"
+                            app:fgColorStart="@color/colorSecondary"
+                            app:startAngle="0"
+                            tools:percent="50"
+                            app:strokeWidth="20dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            tools:text="50%"
+                            android:text="@={viewModel.ringProgressText}"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+                            />
+                    </FrameLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_gravity="center"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+                            android:layout_gravity="center"
+                            tools:text="Average Score: 50%\nEst. exam time: 40 min"
+                            android:text="@={viewModel.statSummary}"
+                            />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/scoreCardView">
+
+                <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                    android:id="@+id/randomTestButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:layout_gravity="end"
+                    android:text="@string/take_short_quiz"
+                    app:icon="@drawable/ic_write"
+                   />
+
+                <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                    android:id="@+id/mockButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_margin="16dp"
+                    android:text="@string/take_a_mock_exam"
+                    app:icon="@drawable/ic_exam"
+                    />
+
+                <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                    android:id="@+id/mainTestButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:layout_gravity="end"
+                    android:text="@string/continue_1700"
+                    app:icon="@drawable/ic_p_logo"
+                    />
+            </LinearLayout>
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</layout>

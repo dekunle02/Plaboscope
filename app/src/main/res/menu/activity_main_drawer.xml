@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_dashboard"
+            android:icon="@drawable/ic_dashboard"
+            android:title="@string/dashboard" />
+
+        <item
+            android:id="@+id/nav_specialty"
+            android:icon="@drawable/ic_specialty"
+            android:title="@string/specialty" />
+
+        <item
+            android:id="@+id/nav_bookmark"
+            android:icon="@drawable/ic_bookmark"
+            android:title="@string/bookmarked_questions"/>
+
+        <item
+            android:id="@+id/nav_note"
+            android:icon="@drawable/ic_exam"
+            android:title="@string/my_notes"/>
+    </group>
+</menu>

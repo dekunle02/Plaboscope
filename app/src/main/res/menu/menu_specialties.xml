@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/cns"
+        android:title="@string/cns" />
+
+    <item
+        android:id="@+id/dermatology"
+        android:title="@string/dermatology" />
+
+    <item
+        android:id="@+id/em"
+        android:title="@string/emergency_medicine" />
+
+    <item
+        android:id="@+id/endo"
+        android:title="@string/endocrinology" />
+
+    <item
+        android:id="@+id/ent"
+        android:title="@string/ent" />
+
+    <item
+        android:id="@+id/haem"
+        android:title="@string/haematology" />
+
+    <item
+        android:id="@+id/id"
+        android:title="@string/infectious_diseases" />
+
+    <item
+        android:id="@+id/nephro"
+        android:title="@string/nephrology" />
+
+    <item
+        android:id="@+id/obGyn"
+        android:title="@string/obs_amp_gyn" />
+
+    <item
+        android:id="@+id/ophtha"
+        android:title="@string/ophthalmology" />
+
+    <item
+        android:id="@+id/paed"
+        android:title="@string/paediatrics" />
+
+    <item
+        android:id="@+id/psych"
+        android:title="@string/psychiatry" />
+
+    <item
+        android:id="@+id/resp"
+        android:title="@string/pulmonology" />
+
+    <item
+        android:id="@+id/rheum"
+        android:title="@string/rheumatology" />
+
+    <item
+        android:id="@+id/surgery"
+        android:title="@string/surgery" />
+
+    <item
+        android:id="@+id/other"
+        android:title="@string/other" />
+
+
+
+</menu>

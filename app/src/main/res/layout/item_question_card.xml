@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp"
+    app:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp"
+        android:layout_margin="4dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/questionCardNumber"
+                style="@style/Plaboscope.QuestionTextViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@{question.number}"
+                android:textSize="22sp"
+                tools:text="(404)" />
+
+            <TextView
+                android:id="@+id/questionCardSpecialty"
+                style="@style/Plaboscope.QuestionTextViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@{question.specialty}"
+                android:textSize="22sp"
+                tools:text="Cardiology" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/questionCardBody"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <TextView
+                android:id="@+id/questionCardTV"
+                style="@style/Plaboscope.QuestionTextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@{question.body}"
+                tools:text="@string/sample_question_body" />
+
+            <RadioGroup
+                android:id="@+id/questionCardRadioGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp">
+
+                <RadioButton
+                    android:id="@+id/questionCardOptionA"
+                    style="@style/Plaboscope.RadioButtonStyle"
+                    android:tag="0"
+                    android:text="@{question.optionA}"
+                    tools:text="Sample Option A" />
+
+                <RadioButton
+                    android:id="@+id/questionCardOptionB"
+                    style="@style/Plaboscope.RadioButtonStyle"
+                    android:tag="1"
+                    tools:text="Sample Option B" />
+
+                <RadioButton
+                    android:id="@+id/questionCardOptionC"
+                    style="@style/Plaboscope.RadioButtonStyle"
+                    android:tag="2"
+                    tools:text="Sample Option C" />
+
+                <RadioButton
+                    android:id="@+id/questionCardOptionD"
+                    style="@style/Plaboscope.RadioButtonStyle"
+                    android:tag="3"
+                    tools:text="Sample Option D" />
+
+                <RadioButton
+                    android:id="@+id/questionCardOptionE"
+                    style="@style/Plaboscope.RadioButtonStyle"
+                    android:tag="4"
+                    tools:text="Sample Option E" />
+
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/questionCardExplanation"
+                style="@style/Plaboscope.ExplanationTextViewStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="@string/sample_question_body"
+                tools:visibility="visible" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
+

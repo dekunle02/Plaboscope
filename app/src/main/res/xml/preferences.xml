@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <SwitchPreferenceCompat
+        android:defaultValue="false"
+        android:key="night_switch"
+        android:title="Night mode"
+        app:iconSpaceReserved="false" />
+
+    <ListPreference
+        android:defaultValue="daily"
+        android:entries="@array/entries_pref"
+        android:entryValues="@array/entry_values"
+        android:key="notif_list"
+        android:title="Notifications"
+        app:iconSpaceReserved="false"
+        app:useSimpleSummaryProvider="true" />
+
+
+</PreferenceScreen>

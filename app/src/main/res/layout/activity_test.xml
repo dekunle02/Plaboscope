@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.adeleke.samad.plaboscope.ui.test.TestViewModel" />
+    </data>
+
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".TestActivity">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:theme="@style/Plaboscope.AppBarOverlay">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/testToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:popupTheme="@style/Plaboscope.PopupOverlay" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <LinearLayout
+            android:id="@+id/testLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:orientation="horizontal"
+                android:paddingBottom="4dp"
+                android:weightSum="100">
+
+                <TextView
+                    android:id="@+id/timeBoard"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="50"
+                    android:text="@={viewModel.timeTally}"
+                    tools:text="Time: 00 hr 00 min 00 sec" />
+
+                <TextView
+                    android:id="@+id/correctBoard"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="25"
+                    android:text="@={viewModel.correctTally}"
+                    tools:text="Correct: 20" />
+
+                <TextView
+                    android:id="@+id/wrongBoard"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="25"
+                    android:text="@={viewModel.wrongTally}"
+                    tools:text="Wrong: 10" />
+
+            </LinearLayout>
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/questionCard"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:elevation="16dp"
+                        android:paddingTop="16dp"
+                        android:paddingBottom="16dp"
+                        app:cardCornerRadius="8dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/questionTextView"
+                                style="@style/Plaboscope.QuestionTextViewStyle"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="8dp"
+                                android:text="@={viewModel.questionBody}"
+                                tools:text="Question Body" />
+
+                            <RadioGroup
+                                android:id="@+id/optionsRadioGroup"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="8dp">
+
+                                <RadioButton
+                                    android:id="@+id/optionA"
+                                    style="@style/Plaboscope.RadioButtonStyle"
+                                    android:onClick="optionSelected"
+                                    android:tag="0"
+                                    android:text="@={viewModel.optionA}" />
+
+                                <RadioButton
+                                    android:id="@+id/optionB"
+                                    style="@style/Plaboscope.RadioButtonStyle"
+                                    android:onClick="optionSelected"
+                                    android:tag="1"
+                                    android:text="@={viewModel.optionB}" />
+
+                                <RadioButton
+                                    android:id="@+id/optionC"
+                                    style="@style/Plaboscope.RadioButtonStyle"
+                                    android:onClick="optionSelected"
+                                    android:tag="2"
+                                    android:text="@={viewModel.optionC}" />
+
+                                <RadioButton
+                                    android:id="@+id/optionD"
+                                    style="@style/Plaboscope.RadioButtonStyle"
+                                    android:onClick="optionSelected"
+                                    android:tag="3"
+                                    android:text="@={viewModel.optionD}" />
+
+                                <RadioButton
+                                    android:id="@+id/optionE"
+                                    style="@style/Plaboscope.RadioButtonStyle"
+                                    android:onClick="optionSelected"
+                                    android:tag="4"
+                                    android:text="@={viewModel.optionE}" />
+
+                            </RadioGroup>
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <TextView
+                        android:id="@+id/explanationTextView"
+                        style="@style/Plaboscope.ExplanationTextViewStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@={viewModel.explanation}"
+                        android:visibility="gone"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/questionCard"
+                        tools:text="Sample Explanation"
+                        tools:visibility="visible" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/nextQuestionButton"
+                        style="@style/Plaboscope.SubmitButtonStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:paddingStart="16dp"
+                        android:paddingTop="4dp"
+                        android:paddingEnd="16dp"
+                        android:paddingBottom="4dp"
+                        android:text="@string/next_question"
+                        android:onClick="@{() -> viewModel.nextQuestionButtonClick()}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/explanationTextView" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/checkAnswerButton"
+                        style="@style/Plaboscope.SubmitButtonStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:paddingStart="16dp"
+                        android:paddingTop="4dp"
+                        android:paddingEnd="16dp"
+                        android:paddingBottom="4dp"
+                        android:text="@string/check_answer"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/explanationTextView" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/previousQuestionButton"
+                        style="@style/Widget.MaterialComponents.Button.TextButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:paddingStart="16dp"
+                        android:paddingTop="4dp"
+                        android:paddingEnd="16dp"
+                        android:paddingBottom="4dp"
+                        android:text="@string/back"
+                        android:onClick="@{() -> viewModel.backButtonClick()}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/explanationTextView" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.core.widget.NestedScrollView>
+        </LinearLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+
+
+    <!--    android:onClick="@{() -> viewModel.checkAnswer()}"-->
+
+</layout>

@@ -1,0 +1,55 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="Plaboscope" parent="Theme.MaterialComponents.DayNight">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorSecondary</item>
+        <item name="colorSecondary">@color/colorSecondary</item>
+    </style>
+
+    <style name="Plaboscope.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark" />
+    <style name="Plaboscope.PopupOverlay" parent="ThemeOverlay.AppCompat.DayNight" />
+
+    <style name="Plaboscope.SplashScreen" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_background</item>
+    </style>
+
+    <style name="Plaboscope.NoActionBar">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+    </style>
+
+    <style name="Plaboscope.RadioButtonStyle">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_margin">4dp</item>
+    </style>
+
+    <style name="Plaboscope.QuestionTextViewStyle">
+        <item name="android:textAlignment">textStart</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="Plaboscope.ExplanationTextViewStyle" parent="TextAppearance.MaterialComponents.Body2">
+        <item name="android:textAlignment">textStart</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:layout_margin">8dp</item>
+    </style>
+
+    <style name="Plaboscope.SubmitButtonStyle" parent="Widget.MaterialComponents.Button">
+        <item name="cornerRadius">4dp</item>
+    </style>
+
+    <style name="TagStyle">
+    </style>
+
+
+<!--    <style name="SplashTheme" parent="Theme.AppCompat.DayNight.NoActionBar">-->
+<!--        <item name="android:windowBackground">@drawable/splash</item>-->
+<!--    </style>-->
+
+
+
+
+</resources>
